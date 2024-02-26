@@ -1,0 +1,86 @@
+# first line
+[[ $- == *i* ]] && source "$HOME/.local/share/blesh/ble.sh" --attach=none
+
+# .bashrc
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+#
+# Sfecific configuration
+#
+# export PS1='\[\e[31;1m\][\u@\h\[\e[33;1m\] \w]\$ \[\e[m\]'
+export PS1='\[\e[31;1m\][\w]\$ \[\e[m\]'
+alias vi='/usr/bin/vim'
+alias tree='env LANG=C tree'
+alias grep='grep --color=auto -i'
+alias df='df -hT'
+alias pps='ps -ef | head -1 ; ps -ef | grep $1'
+alias c='clear'
+alias clar='clear'
+alias ls='ls --color=auto -h -F'
+alias pps='ps -ef | head -1; ps -ef | grep $1'
+alias chrome='google-chrome --no-sandbox'
+alias ttt='chmod 700 /root/bin/*.sh'
+alias RS='rsync -avz --delete -e ssh'
+alias LS='rsync -a --delete'
+
+alias fwcmd='firewall-cmd --permanent'
+alias fwreload='firewall-cmd --reload'
+alias fwlist='firewall-cmd --list-all'
+
+#
+# DNS Server Alias
+#
+alias named.conf='vi /etc/named.conf'
+alias named.rfc1912.zones='vi /etc/named.rfc1912.zones' 
+alias DNS='cd /var/named'
+alias dnslog='tail -f /var/log/messages'
+
+#
+# FTP Server Alias
+#
+alias FTP='cd /etc/vsftpd'
+alias vsftpd.conf='vi /etc/vsftpd/vsftpd.conf'
+alias ftpusers='vi /etc/vsftpd/ftpusers'
+alias user_list='vi /etc/vsftpd/user_list'
+alias slog='tail -f /var/log/secure'
+alias flog='tail -f /var/log/xferlog'
+
+#
+# Mail Server Alias
+#
+alias MAIL='cd /etc/mail'
+alias sendmail.cf='vi /etc/mail/sendmail.cf'
+alias maillog='tail -f /var/log/maillog'
+
+#
+# Samba Server Alias
+#
+alias smb.conf='vi /etc/samba/smb.conf'
+alias SMB='cd /etc/samba'
+alias smblog='tail -f /var/log/samba/log.smbd'
+alias nmblog='tail -f /var/log/samba/log.nmbd'
+
+#
+# Temporary Alias
+#
+alias aaa='vi /etc/exports'
+alias bbb='systemctl restart nfs-server'
+alias ccc='exportfs -v'
+
+# last line
+[[ ${BLE_VERSION-} ]] && ble-attach
+
+
+
+
+
